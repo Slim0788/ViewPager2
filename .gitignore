@@ -2,3 +2,9 @@
 /.gradle/
 /app/build/
 /app/build/intermediates/javac/debug/classes/
+/.idea/libraries/
+/.idea/
+/gradle/wrapper/
+/gradlew
+/gradlew.bat
+/local.properties
