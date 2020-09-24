@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/selection">
+
+    <fragment
+        android:id="@+id/selection"
+        android:name="com.slim.viewpager2.ui.SelectionFragment"
+        android:label="Select ViewPager"
+        tools:layout="@layout/fragment_selection">
+        <action
+            android:id="@+id/action_selection_to_fragmentsSlider"
+            app:destination="@id/fragmentsSlider" />
+        <action
+            android:id="@+id/action_selection_to_viewsSlider"
+            app:destination="@id/viewsSlider" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewsSlider"
+        android:name="com.slim.viewpager2.ui.slider_views.ViewsSliderFragment"
+        android:label="Views Slider"
+        tools:layout="@layout/fragment_views_slider" />
+
+    <fragment
+        android:id="@+id/fragmentsSlider"
+        android:name="com.slim.viewpager2.ui.slider_fragments.FragmentsSliderFragment"
+        android:label="Fragments Slider"
+        tools:layout="@layout/fragment_fragments_slider" />
+
+</navigation>

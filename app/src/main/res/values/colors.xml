@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Slider dots color-->
+    <color name="colorActive">#A98E8E8E</color>
+    <color name="colorInactive">#80393939</color>
+
+    <color name="ic_launcher_background">#FAFAFA</color>
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#c873f4</color>
+</resources>
