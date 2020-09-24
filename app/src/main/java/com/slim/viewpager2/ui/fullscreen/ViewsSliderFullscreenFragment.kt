@@ -87,24 +87,27 @@ class ViewsSliderFullscreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        binding.viewPager.adapter = ViewsSliderAdapter()
-        binding.viewPager.registerOnPageChangeCallback(pageChangeCallback)
+        binding.viewPager.apply {
+            registerOnPageChangeCallback(pageChangeCallback)
+            adapter = ViewsSliderAdapter()
+        }
 
         visible = true
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        binding.nextBtn.setOnTouchListener(delayHideTouchListener)
-        binding.previousBtn.setOnTouchListener(delayHideTouchListener)
-
-        binding.previousBtn.setOnClickListener {
-            onPreviousPage(binding.viewPager.currentItem)
+        binding.apply {
+            previousBtn.setOnTouchListener(delayHideTouchListener)
+            previousBtn.setOnClickListener {
+                onPreviousPage(binding.viewPager.currentItem)
+            }
+            nextBtn.setOnTouchListener(delayHideTouchListener)
+            nextBtn.setOnClickListener {
+                onNextPage(binding.viewPager.currentItem)
+            }
         }
 
-        binding.nextBtn.setOnClickListener {
-            onNextPage(binding.viewPager.currentItem)
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -269,8 +272,6 @@ class ViewsSliderFullscreenFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewsSliderAdapter.ViewHolder, position: Int) {
             holder.bind()
         }
-
-        override fun getItemViewType(position: Int) = imageList[position]
 
         override fun getItemCount() = imageList.size
 

@@ -38,8 +38,10 @@ class ViewsSliderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
-        binding.viewPager.adapter = ViewsSliderAdapter()
-        binding.viewPager.registerOnPageChangeCallback(pageChangeCallback)
+        binding.viewPager.apply {
+            registerOnPageChangeCallback(pageChangeCallback)
+            adapter = ViewsSliderAdapter()
+        }
 
         binding.skipBtn.setOnClickListener {
             findNavController().popBackStack()
@@ -91,13 +93,12 @@ class ViewsSliderFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun toggleOrientation(currentOrientation: Int): Int {
-        return if (currentOrientation == ViewPager2.ORIENTATION_VERTICAL) {
-            ViewPager2.ORIENTATION_HORIZONTAL
-        } else {
-            ViewPager2.ORIENTATION_VERTICAL
-        }
-    }
+    private fun toggleOrientation(currentOrientation: Int) =
+            if (currentOrientation == ViewPager2.ORIENTATION_VERTICAL) {
+                ViewPager2.ORIENTATION_HORIZONTAL
+            } else {
+                ViewPager2.ORIENTATION_VERTICAL
+            }
 
     /*
      * ViewPager page change listener

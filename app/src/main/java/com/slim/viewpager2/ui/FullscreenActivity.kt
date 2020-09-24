@@ -39,8 +39,10 @@ class FullscreenActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListene
         binding = FragmentViewsSliderFullscreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
         addDots()
-        binding.viewPager.adapter = ViewsSliderAdapter()
-        binding.viewPager.registerOnPageChangeCallback(pageChangeCallback)
+        binding.viewPager.apply {
+            registerOnPageChangeCallback(pageChangeCallback)
+            adapter = ViewsSliderAdapter()
+        }
 
         binding.menuIcon.apply {
             visibility = View.VISIBLE
@@ -150,8 +152,6 @@ class FullscreenActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListene
         override fun onBindViewHolder(holder: ViewsSliderAdapter.ViewHolder, position: Int) {
             holder.bind()
         }
-
-        override fun getItemViewType(position: Int) = imageList[position]
 
         override fun getItemCount() = imageList.size
 
