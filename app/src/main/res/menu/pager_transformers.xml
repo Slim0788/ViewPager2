@@ -2,8 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_orientation"
-        android:title="@string/change_orientation"
         android:icon="@drawable/ic_orientation"
+        android:title="@string/change_orientation"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_anti_clock_spin"
@@ -113,6 +113,11 @@
     <item
         android:id="@+id/action_vertical_shut"
         android:title="@string/vertical_shut"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_zoom_in"
+        android:title="@string/zoom_in"
         app:showAsAction="never" />
 
     <item

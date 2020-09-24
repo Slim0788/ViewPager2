@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class ZoomInTransformer implements ViewPager2.PageTransformer {
-    public static final float MAX_ROTATION = 90.0f;
 
     @Override
     public void transformPage(@NonNull View page, float position) {

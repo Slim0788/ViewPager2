@@ -2,11 +2,13 @@ package com.slim.viewpager2.transformers;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class ClockSpinTransformation implements ViewPager2.PageTransformer {
+
     @Override
-    public void transformPage(View page, float position) {
+    public void transformPage(@NonNull View page, float position) {
 
         page.setTranslationX(-position * page.getWidth());
 
@@ -17,7 +19,6 @@ public class ClockSpinTransformation implements ViewPager2.PageTransformer {
         } else if (Math.abs(position) > 0.5) {
             page.setVisibility(View.GONE);
         }
-
 
         if (position < -1) {  // [-Infinity,-1)
             // This page is way off-screen to the left.
@@ -36,7 +37,5 @@ public class ClockSpinTransformation implements ViewPager2.PageTransformer {
             page.setAlpha(0);
 
         }
-
-
     }
 }

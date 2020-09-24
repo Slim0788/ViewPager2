@@ -2,14 +2,15 @@ package com.slim.viewpager2.transformers;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class CubeInRotationTransformation implements ViewPager2.PageTransformer {
+
     @Override
-    public void transformPage(View page, float position) {
+    public void transformPage(@NonNull View page, float position) {
 
         page.setCameraDistance(20000);
-
 
         if (position < -1) {     // [-Infinity,-1)
             // This page is way off-screen to the left.
@@ -30,7 +31,5 @@ public class CubeInRotationTransformation implements ViewPager2.PageTransformer 
             page.setAlpha(0);
 
         }
-
-
     }
 }

@@ -2,11 +2,13 @@ package com.slim.viewpager2.transformers;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class FanTransformation implements ViewPager2.PageTransformer {
+
     @Override
-    public void transformPage(View page, float position) {
+    public void transformPage(@NonNull View page, float position) {
 
         page.setTranslationX(-position * page.getWidth());
         page.setPivotX(0);
@@ -20,6 +22,7 @@ public class FanTransformation implements ViewPager2.PageTransformer {
         } else if (position <= 0) {    // [-1,0]
             page.setAlpha(1);
             page.setRotationY(-120 * Math.abs(position));
+
         } else if (position <= 1) {    // (0,1]
             page.setAlpha(1);
             page.setRotationY(120 * Math.abs(position));
@@ -29,7 +32,5 @@ public class FanTransformation implements ViewPager2.PageTransformer {
             page.setAlpha(0);
 
         }
-
-
     }
 }

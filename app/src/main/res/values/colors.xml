@@ -5,6 +5,7 @@
     <color name="colorInactive">#80393939</color>
 
     <color name="ic_launcher_background">#FAFAFA</color>
+    <color name="black_overlay">#66000000</color>
 
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>

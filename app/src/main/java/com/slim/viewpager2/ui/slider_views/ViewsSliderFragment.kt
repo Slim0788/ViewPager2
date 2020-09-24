@@ -3,6 +3,7 @@ package com.slim.viewpager2.ui.slider_views
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -82,15 +83,20 @@ class ViewsSliderFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_orientation) {
-            if (binding.viewPager.orientation == ViewPager2.ORIENTATION_VERTICAL) {
-                binding.viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-            } else {
-                binding.viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
-            }
+            binding.viewPager.orientation = toggleOrientation(binding.viewPager.orientation)
+            Toast.makeText(requireContext(), R.string.change_orientation, Toast.LENGTH_SHORT).show()
         } else {
             binding.viewPager.setPageTransformer(Utils.getTransformer(item.itemId))
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun toggleOrientation(currentOrientation: Int): Int {
+        return if (currentOrientation == ViewPager2.ORIENTATION_VERTICAL) {
+            ViewPager2.ORIENTATION_HORIZONTAL
+        } else {
+            ViewPager2.ORIENTATION_VERTICAL
+        }
     }
 
     /*

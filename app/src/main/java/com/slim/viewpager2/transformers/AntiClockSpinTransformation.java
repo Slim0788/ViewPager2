@@ -2,13 +2,13 @@ package com.slim.viewpager2.transformers;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
-import org.jetbrains.annotations.NotNull;
-
 public class AntiClockSpinTransformation implements ViewPager2.PageTransformer {
+
     @Override
-    public void transformPage(@NotNull View page, float position) {
+    public void transformPage(@NonNull View page, float position) {
 
         page.setTranslationX(-position * page.getWidth());
 

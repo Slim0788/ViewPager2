@@ -2,11 +2,13 @@ package com.slim.viewpager2.transformers;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class CubeOutScalingTransformation implements ViewPager2.PageTransformer {
+
     @Override
-    public void transformPage(View page, float position) {
+    public void transformPage(@NonNull View page, float position) {
 
         if (position < -1) {    // [-Infinity,-1)
             // This page is way off-screen to the left.
@@ -28,13 +30,12 @@ public class CubeOutScalingTransformation implements ViewPager2.PageTransformer 
 
         }
 
-
         if (Math.abs(position) <= 0.5) {
             page.setScaleY(Math.max(0.4f, 1 - Math.abs(position)));
+
         } else if (Math.abs(position) <= 1) {
             page.setScaleY(Math.max(0.4f, Math.abs(position)));
+
         }
-
-
     }
 }

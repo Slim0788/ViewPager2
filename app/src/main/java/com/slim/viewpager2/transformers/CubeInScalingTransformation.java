@@ -2,13 +2,15 @@ package com.slim.viewpager2.transformers;
 
 import android.view.View;
 
-import androidx.viewpager.widget.ViewPager;
+import androidx.annotation.NonNull;
+import androidx.viewpager2.widget.ViewPager2;
 
-public class CubeInScalingTransformation implements ViewPager.PageTransformer {
+public class CubeInScalingTransformation implements ViewPager2.PageTransformer {
+
     @Override
-    public void transformPage(View page, float position) {
-        page.setCameraDistance(20000);
+    public void transformPage(@NonNull View page, float position) {
 
+        page.setCameraDistance(20000);
 
         if (position < -1) {     // [-Infinity,-1)
             // This page is way off-screen to the left.
@@ -30,14 +32,12 @@ public class CubeInScalingTransformation implements ViewPager.PageTransformer {
 
         }
 
-
         if (Math.abs(position) <= 0.5) {
             page.setScaleY(Math.max(.4f, 1 - Math.abs(position)));
+
         } else if (Math.abs(position) <= 1) {
             page.setScaleY(Math.max(.4f, Math.abs(position)));
 
         }
-
-
     }
 }

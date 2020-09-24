@@ -4,6 +4,7 @@
     <string name="dot">&#8226;</string>
 
     <string name="next">NEXT</string>
+    <string name="previous">PREVIOUS</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
@@ -23,8 +24,6 @@
 
     <string name="change_orientation">Change Orientation</string>
     <!-- Names of transformation-->
-    <string name="rotate">Rotate</string>
-    <string name="title_fragment_slider">Fragment Slider</string>
     <string name="anti_clock_spin">Anti Clock Spin</string>
     <string name="clock_spin">Clock Spin</string>
     <string name="cube_in_depth">Cube In Depth</string>
@@ -47,6 +46,6 @@
     <string name="toss_transformation">Toss</string>
     <string name="vertical_flip">Vertical Flip</string>
     <string name="vertical_shut">Vertical Shut</string>
-    <string name="zoom_out">Zoom Out</string>
-
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out Page</string>
 </resources>

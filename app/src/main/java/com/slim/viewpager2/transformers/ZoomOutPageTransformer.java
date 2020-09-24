@@ -2,13 +2,16 @@ package com.slim.viewpager2.transformers;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class ZoomOutPageTransformer implements ViewPager2.PageTransformer {
+
     private static final float MIN_SCALE = 0.85f;
     private static final float MIN_ALPHA = 0.5f;
 
-    public void transformPage(View view, float position) {
+    public void transformPage(@NonNull View view, float position) {
+
         int pageWidth = view.getWidth();
         int pageHeight = view.getHeight();
 
@@ -32,9 +35,7 @@ public class ZoomOutPageTransformer implements ViewPager2.PageTransformer {
             view.setScaleY(scaleFactor);
 
             // Fade the page relative to its size.
-            view.setAlpha(MIN_ALPHA +
-                    (scaleFactor - MIN_SCALE) /
-                            (1 - MIN_SCALE) * (1 - MIN_ALPHA));
+            view.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE) / (1 - MIN_SCALE) * (1 - MIN_ALPHA));
 
         } else { // (1,+Infinity]
             // This page is way off-screen to the right.

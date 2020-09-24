@@ -1,16 +1,17 @@
 package com.slim.viewpager2.transformers;
 
-import android.os.Build;
 import android.view.View;
 
-import androidx.annotation.RequiresApi;
+import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class DepthPageTransformer implements ViewPager2.PageTransformer {
+
     private static final float MIN_SCALE = 0.75f;
 
-    public void transformPage(View view, float position) {
+    @Override
+    public void transformPage(@NonNull View view, float position) {
+
         int pageWidth = view.getWidth();
 
         if (position < -1) { // [-Infinity,-1)
@@ -35,14 +36,14 @@ public class DepthPageTransformer implements ViewPager2.PageTransformer {
             view.setTranslationZ(-1f);
 
             // Scale the page down (between MIN_SCALE and 1)
-            float scaleFactor = MIN_SCALE
-                    + (1 - MIN_SCALE) * (1 - Math.abs(position));
+            float scaleFactor = MIN_SCALE + (1 - MIN_SCALE) * (1 - Math.abs(position));
             view.setScaleX(scaleFactor);
             view.setScaleY(scaleFactor);
 
         } else { // (1,+Infinity]
             // This page is way off-screen to the right.
             view.setAlpha(0f);
+
         }
     }
 }
